@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({//创建Vue对象
+            //传入option
+            el: '#app',//挂载元素id
+            data: {
+                firstName: 'James',
+                lastName: 'Lebron'
+            },
+            // 计算属性：computed（）一般没有set方法，只读属性
+            computed: {
+                fullName: {
+                    set: function () {
+                        
+                    },
+                    get: function () {
+                        return this.lastName + ' ' + this.firstName
+                    },
+                }
+            },
+        })
+    </script>
+</body>
+</html>

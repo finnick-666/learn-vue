@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="message" placeholder="input">
+        {{message}}
+        <input type="text" v-bind="message" @input="message=$event.target.value">
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hi!",
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- v-model是 v-bind:value和v-on:input的结合-->

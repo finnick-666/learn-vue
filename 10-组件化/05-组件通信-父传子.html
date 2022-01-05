@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn :cmessage="message"
+             :ccount="count"></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <p>{{cmessage}}</p>
+            <p>{{ccount}}</p>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template: '#cpn',
+            props: {//props驼峰，使用需要转换成-
+                cmessage: String,
+                ccount: {
+                    type: Number,
+                    required: true,
+                    default: '123123'
+                }
+            },
+            data() {
+                return {
+
+                }
+            }
+        }
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                message: '123'
+            },
+            components: {
+                cpn
+            }
+        })
+    </script>
+</body>
+</html>

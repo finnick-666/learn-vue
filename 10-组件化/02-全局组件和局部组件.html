@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- //3.使用组件 -->
+        <mycpn></mycpn>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+//1. 创建组件构造器
+        const myComponent = Vue.extend({
+            template: `//此处为反引号
+                <div>
+                    <h2>组件标题2</h2>
+                    <p>卧室组件中的一个段落内容</p>
+                </div>`
+        });
+
+//2. 注册组件
+        Vue.component('my-cpnt', myComponent)//（全局组件，可以在多个Vue实力下使用）
+
+        const app = new Vue({
+            el: '#app',
+            components: {//局部组件
+                mycpn: myComponent,
+            }
+        })
+    </script>
+</body>
+</html>

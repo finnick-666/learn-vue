@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in movies">{{item}}</li>//v-for列表展示
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({//创建Vue对象
+            //传入option
+            el: '#app',//挂载元素id
+            data: {
+                message:'你好啊',
+                movies:['蜘蛛侠','蝙蝠侠','钢铁侠','蚁人']
+            }
+        })
+    </script>
+</body>
+</html>

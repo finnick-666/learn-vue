@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 事件调用没有参数，可以不加括号 -->
+        <button @click="print">button1</button>
+        <!-- 事件定义时，写方法时省略小括号，但本身需要一个参数，
+            Vue会默认将浏览器event时间对象作为参数传入方法 -->
+        <button @click="printWithParam">button2</button>
+        <!-- 写小括号没传参数为undefined -->
+        <button @click="printWithParam()">button3</button>
+        <!-- 需要event又需要参数, 通过$event手动获取event -->
+        <button @click="printWithParamAndEvent(abc,$event)">button4</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                abc: 123
+            },
+            methods: {
+                print() {
+                    console.log("click");
+                },
+                printWithParam(name) {
+                    console.log(name);
+                },
+                printWithParamAndEvent(name, event) {
+                    console.log(name, "+", event);
+                }
+            },
+        })
+    </script>
+</body>
+</html>

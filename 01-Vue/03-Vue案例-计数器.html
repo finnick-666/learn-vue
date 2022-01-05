@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>当前计数: {{count}}</h2>
+        <!-- <button v-on:click="count++">+</button>
+        <button v-on:click="count--">-</button> -->
+        <button v-on:click="add">+</button>
+        <button @click="minus">-</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const obj = {//代理
+            count: 0
+        }
+        const app = new Vue({//创建Vue对象
+            //传入option
+            el: '#app',//挂载元素id
+            data: obj,
+            methods: {//定义方法
+                add: function () {
+                    this.count++;
+                },
+                minus: function () {
+                    this.count--;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

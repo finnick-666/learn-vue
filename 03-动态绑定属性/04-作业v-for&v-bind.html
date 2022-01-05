@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .active {
+        color: red;
+    }
+</style>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in movies"
+                v-bind:class="{active:activeIndex === index}"
+                v-on:click="btnClick(index)"
+            >{{index + '-' + item}}</li>
+        </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                movies: ['蜘蛛侠','钢铁侠','火车侠','小飞侠'],
+                activeIndex:0,//状态
+            },
+            methods: {
+                btnClick(index) {
+                    this.activeIndex = index
+                }
+            },
+        })
+    </script>
+</body>
+</html>

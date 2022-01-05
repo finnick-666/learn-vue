@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <h2>{{name}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({//创建Vue对象
+            //传入option
+            el: '#app',//挂载元素id
+            data: {
+                message:'你好',
+                name:'Finnick'
+            }
+        })
+    </script>
+</body>
+</html>

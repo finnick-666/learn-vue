@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in letters" :key="item">{{item}}</li>
+        </ul>
+        <button @click="btnClick">click</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                letters: ['a', 'b', 'c', 'd']
+            },
+            methods: {
+                btnClick() {
+                    //push()最后面添加元素
+                    //pop()删除最后一个
+                    //shift()删除第一个
+                    //unshift()最前面添加元素
+                    //splice(start, count, item)增删替换
+                    //sort()排序
+                    //reverse()反转
+                }
+            },
+        })
+    </script>
+</body>
+</html>

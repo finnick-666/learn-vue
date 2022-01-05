@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn :number1="num1"
+             :number2="num2"
+             @numchange1="numchange1"
+             @numchange2="numchange2"
+        ></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <p>{{number1}}</p>
+            <input type="text" :value="cnumber1" @input="inputnum1"></input>
+            <p>{{number2}}</p>
+            <input type="text" :value="cnumber2" @input="inputnum2"></input>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 0,
+            },
+            methods: {
+                numchange1(value) {
+                    this.num1 = parseInt(value);
+                },
+                numchange2(value) {
+                    this.num2 = parseInt(value);
+                },
+            },
+            components: {
+                cpn: {
+                    template: `#cpn`,
+                    props: {
+                        number1: Number,
+                        number2: Number,
+                    },
+                    data() {
+                        return {
+                            cnumber1: this.number1,
+                            cnumber2: this.number2,
+                        }
+                    },
+                    methods: {
+                        inputnum1(event) {
+                            this.cnumber1 = event.target.value;
+                            this.$emit('numchange1', this.cnumber1);
+                        },
+                        inputnum2(event) {
+                            this.cnumber2 = event.target.value;
+                            this.$emit('numchange2', this.cnumber2);
+                        }
+                    },
+                }
+            }
+        })
+    </script>
+</body>
+</html>

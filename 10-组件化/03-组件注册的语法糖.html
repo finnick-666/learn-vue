@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <my-cpnt></my-cpnt>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+
+//2. 注册组件，并且定义组件标签的名称
+        Vue.component('my-cpnt', {
+            template: `//此处为反引号
+                <div>
+                    <h2>组建标题</h2>
+                    <p>卧室组件中的一个段落内容</p>
+                </div>`
+        })
+
+        const app = new Vue({
+            el: '#app',
+        })
+    </script>
+</body>
+</html>
+
+<!-- 简化过程，省去Vue.extend()的步骤，直接使用对象替代 -->

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn></cpn>
+    </div>
+
+
+    <template id="cpn">
+        <div>
+            <p>cpn组件</p>
+            <ccpn></ccpn>
+        </div>
+    </template>
+
+    <template id="ccpn">
+        <div>
+            <p>ccpn组件</p></p></p>
+            <button @click="btnClick">123</button>
+        </div>
+    </template>
+
+
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            methods: {
+                btnClick() {
+                    // console.log(this.$children);
+                    // this.$children[0].showCount();//多组件不好用
+                    // this.$refs.aaa.showCount();//比较常用
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#cpn",
+                    methods: {
+
+                    },
+                    components: {
+                        ccpn: {
+                            template: "#ccpn",
+                            methods: {
+                                showCount() {
+                                    console.log(111)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

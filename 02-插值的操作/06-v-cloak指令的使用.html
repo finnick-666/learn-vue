@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <!-- Vue解析前有v-cloak属性，解析后没有了 -->
+        <h1>{{message}}</h1>
+        <h2>{{name}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        setTimeout(function () {
+            const app = new Vue({//创建Vue对象
+            //传入option
+                el: '#app',//挂载元素id
+                data: {
+                    message:'你好',
+                    name:'Finnick'
+                }
+            })
+        }, 2000)
+    </script>
+</body>
+</html>

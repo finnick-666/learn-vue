@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{lastName}} {{firstName}}</h2>
+        <h2>{{getFullName()}}</h2>
+        <!-- 计算属性多次调用只计算一次，数据不变用缓存数据，提高效率 -->
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({//创建Vue对象
+            //传入option
+            el: '#app',//挂载元素id
+            data: {
+                firstName: 'James',
+                lastName: 'Lebron',
+            },
+            // 计算属性：computed（）
+            computed: {
+                fullName() {
+                    return this.lastName + ' ' + this.firstName
+                }
+            },
+            methods: {
+                getFullName() {
+                    return this.lastName + ' ' + this.firstName
+                }
+            },
+        })
+    </script>
+</body>
+</html>

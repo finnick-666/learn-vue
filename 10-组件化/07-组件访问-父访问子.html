@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn ref="aaa"></cpn>
+        <button @click="btnClick">123</button>
+    </div>
+
+
+    <template id="cpn">
+        <div></div>
+
+    </template>
+
+
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            methods: {
+                btnClick() {
+                    // console.log(this.$children);
+                    // this.$children[0].showCount();//多组件不好用
+                    this.$refs.aaa.showCount();//比较常用
+                }
+            },
+            components: {
+                cpn: {
+                    template: "#cpn",
+                    methods: {
+                        showCount() {
+                            console.log(111)
+                        }
+                    },
+                }
+            }
+        })
+    </script>
+</body>
+</html>

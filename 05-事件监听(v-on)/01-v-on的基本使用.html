@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{count}}</h2>
+        <button @click="add">+</button>
+        <!-- @是v-on的语法糖 -->
+        <button v-on:click="minus">-</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            },
+            methods: {
+                add() {
+                    this.count++
+                },
+                minus() {
+                    this.count--
+                }
+            },
+        })
+    </script>
+</body>
+</html>
